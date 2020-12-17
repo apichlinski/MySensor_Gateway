@@ -9,19 +9,17 @@ cache:
         - "~/.platformio"
         - $HOME/.cache/pip
 
-env:
-    - PLATFORMIO_CI_SRC=src/MySensor_Gateway.cpp
-
 install:
     - pip install -U platformio
-    - pio update
-    - rm -rf ./linux
+    - platformio update
+    - platformio lib -g install https://github.com/mysensors/MySensors
+    - platformio lib -g install https://github.com/thomasfredericks/Bounce2
 
-    #
-    # Libraries from PlatformIO Library Registry:
-    #
-    # https://platformio.org/lib/show/416/TinyGPS
-    - pio lib -g install 416 421 422
+   
+script: 
+    - platformio ci --src="src/MySensor_Gateway.cpp" --lib="." --board=uno --board=megaatmega2560 $PLATFORMIO_CI_EXTRA_ARGS
 
-script:
-    - pio ci --lib="." --board=uno --board=megaatmega2560 $PLATFORMIO_CI_EXTRA_ARGS
+notifications:
+    email:
+        on_success: never
+        on_failure: always
