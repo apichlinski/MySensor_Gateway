@@ -1,0 +1,27 @@
+language: python
+python:
+    - "3.7"
+
+# Cache PlatformIO packages using Travis CI container-based infrastructure
+sudo: false
+cache:
+    directories:
+        - "~/.platformio"
+        - $HOME/.cache/pip
+
+env:
+    - PLATFORMIO_CI_SRC=src/MySensor_Gateway.cpp
+
+install:
+    - pip install -U platformio
+    - pio update
+    - rm -rf ./linux
+
+    #
+    # Libraries from PlatformIO Library Registry:
+    #
+    # https://platformio.org/lib/show/416/TinyGPS
+    - pio lib -g install 416 421 422
+
+script:
+    - pio ci --lib="." --board=uno --board=megaatmega2560 $PLATFORMIO_CI_EXTRA_ARGS

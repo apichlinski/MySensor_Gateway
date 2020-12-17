@@ -1,6 +1,6 @@
 # MySensors - Serial Gateway - 12 channel relay example
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+[![Build Status](https://travis-ci.org/apichlinski/MySensor_Gateway.svg?branch=master)](https://travis-ci.org/apichlinski/MySensor_Gateway)
 
 This is a very simple example on how to write Smart serial gateway witch you can control via:
  - Google Assistant
@@ -11,13 +11,15 @@ This is a very simple example on how to write Smart serial gateway witch you can
 ### New Features!
 
   - Cleaned up code v1.0
-  - Moved to new PlatformIO IDE for better dependency managment.
+  - Moved to new PlatformIO IDE for better dependency managment
+  - Support for Travis CI
 
 ### Hardware recommendation
 For this project I recommend to use Arduino Mega 2560 because there is a lot of I/O pins and you can use other pins for another sensors like BME280 etc.
 Also I recommend a 5V Relay module ror example SSR relay module with 1/2/4/8 channels.
 
 ### Software recommendation
+* [PlatformIO IDE] - example for Visual Studio Code
 * [mysensors/MySensors@^2.3.2] - MySensors main framework
 * [thomasfredericks/Bounce2@^2.55] - Buttons bounce module
 
