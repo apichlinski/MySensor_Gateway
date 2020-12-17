@@ -17,7 +17,7 @@ install:
 
    
 script: 
-    - platformio ci --src="src/MySensor_Gateway.cpp" --lib="." --board=uno --board=megaatmega2560 $PLATFORMIO_CI_EXTRA_ARGS
+    - platformio ci --lib="." --board=uno --board=megaatmega2560 src/MySensor_Gateway.cpp
 
 notifications:
     email:
